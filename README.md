@@ -59,8 +59,6 @@ flowchart TD
         end
     end
 
-    Mobile App -->|Live stream / commands| Backend
-
     subgraph Backend
         B1[User authentication & management]
         B2[Manage registered devices]
