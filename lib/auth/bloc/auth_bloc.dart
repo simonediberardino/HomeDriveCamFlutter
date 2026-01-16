@@ -8,7 +8,9 @@ import 'auth_event.dart';
 import 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final GoogleSignIn _googleSignIn = GoogleSignIn(
+    scopes: ["email", "profile"]
+  );
 
   AuthBloc() : super(AuthInitial()) {
     on<CheckAuthStatus>((event, emit) async {

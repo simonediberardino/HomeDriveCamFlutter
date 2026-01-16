@@ -27,10 +27,17 @@ class MyApp extends StatelessWidget {
         home: BlocBuilder<AuthBloc, AuthState>(
           builder: (context, state) {
             log('Current auth state: $state');
+
             if (state is Authenticated) {
               return WelcomePage(user: state.user);
-            } else {
+            } else if (state is Unauthenticated) {
               return const LoginPage();
+            } else {
+              return const Scaffold(
+                body: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
             }
           },
         ),
