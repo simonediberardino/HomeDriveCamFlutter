@@ -62,7 +62,7 @@ flowchart TB
     end
 
     subgraph Backend
-        direction TB
+        direction LR
         B1[User authentication & management]
         B2[Manage registered devices]
         B3[Send commands to devices]
