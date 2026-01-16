@@ -41,6 +41,7 @@ A cross-platform **Flutter** mobile application (iOS & Android) that can act as 
 
 flowchart TD
     subgraph Mobile App
+        direction TB
         subgraph Recorder Device
             A0[User login]
             A1[Record video locally]
@@ -61,6 +62,7 @@ flowchart TD
     end
 
     subgraph Backend
+        direction TB
         B1[User authentication & management]
         B2[Manage registered devices]
         B3[Send commands to devices]
