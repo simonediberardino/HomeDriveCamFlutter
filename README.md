@@ -40,16 +40,8 @@ A cross-platform **Flutter** mobile application (iOS & Android) that can act as 
 ```mermaid
 
 flowchart TB
-    subgraph Backend
-        B1[User authentication & management]
-        B2[Manage registered devices]
-        B3[Send commands to devices]
-        B4[Signaling server for WebRTC]
-        B5[Logging / metadata]
-        B1 --> B2 --> B3 --> B4 --> B5
-    end
-
     subgraph Mobile App
+        direction LR
         subgraph Recorder Device
             A0[User login]
             A1[Record video locally]
@@ -67,6 +59,16 @@ flowchart TB
             C4[Dashboard: ON/OFF, notifications, local clips]
             C1 --> C2 --> C3 --> C4
         end
+    end
+
+    subgraph Backend
+        direction TB
+        B1[User authentication & management]
+        B2[Manage registered devices]
+        B3[Send commands to devices]
+        B4[Signaling server for WebRTC]
+        B5[Logging / metadata]
+        B1 --> B2 --> B3 --> B4 --> B5
     end
 ```
 
