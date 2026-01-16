@@ -40,10 +40,8 @@ A cross-platform **Flutter** mobile application (iOS & Android) that can act as 
 ```mermaid
 
 flowchart TB
-    %% Overall top-to-bottom layout
     direction TB
 
-    %% Mobile App on top
     subgraph Mobile App
         direction LR
         subgraph Recorder Device
@@ -67,7 +65,6 @@ flowchart TB
         end
     end
 
-    %% Backend below Mobile App
     subgraph Backend
         direction TB
         B1[User authentication & management]
