@@ -1,16 +1,86 @@
-# homedrivecam
+# HomeDriveCam Mobile App | Flutter
 
-A new Flutter project.
+A cross-platform **Flutter** mobile application (iOS & Android) that can act as either a **home security camera** or a **dash cam**, depending on configuration. The app serves as both a **recorder** and **viewer**, allowing users to record video locally, stream live video in real-time, and remotely monitor and control registered devices with the same mobile application.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+### Recorder (Device Side)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+* Video recording on the mobile device (optional local storage)
+* Live video streaming in real-time (WebRTC / RTSP)
+* H.264 / H.265 video compression
+* Dual mode: **Home Camera** or **Dash Cam**
+* Receive commands from the backend (ON/OFF, configuration updates)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Viewer (Mobile App)
+
+* User authentication and login
+* Select a device to view live stream
+* Receive live streaming from recorder devices
+* Dashboard with:
+
+  * Remote ON/OFF control
+  * Basic notifications
+  * View locally recorded clips
+
+### Backend (Lightweight Server)
+
+* User management and authentication
+* Manage registered recorder devices
+* Send commands to recorders (ON/OFF, settings, updates)
+* Signaling server for P2P WebRTC connection (stream initialization)
+* Optional logging / metadata (video duration, battery status, device mode)
+
+---
+
+## Architecture
+
+```mermaid
+
+flowchart TB
+    direction TB
+
+    subgraph Mobile App
+        direction LR
+        subgraph Recorder Device
+            direction LR
+            A0[User login]
+            A1[Enroll device Dashcam or Home Cam]
+            A2[Record video locally]
+            A3[Live streaming WebRTC]
+            A4[Video compression H.264/H.265]
+            A5[Receive viewer commands]
+            A0 --> A1 --> A2 --> A3 --> A4 --> A5
+        end
+
+        subgraph Viewer Device
+            direction LR
+            C1[User login]
+            C2[Select device]
+            C3[Receive live streaming and view saved clips]
+            C4[Send commands to recorder devices]
+            C1 --> C2 --> C3 --> C4
+        end
+    end
+
+    subgraph Backend
+        direction TB
+        B1[User authentication & management]
+        B2[Manage registered devices]
+        B3[Send commands to devices]
+        B4[Signaling server for WebRTC]
+        B5[Logging / metadata]
+        B1 --> B2 --> B3 --> B4 --> B5
+    end
+```
+
+---
+
+## Tech Stack
+
+* **Mobile App:** Flutter (iOS & Android)
+* **Video Streaming:** WebRTC / RTSP
+* **Video Compression:** H.264 / H.265
+* **Backend:** Spring Boot
