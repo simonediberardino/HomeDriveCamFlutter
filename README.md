@@ -44,11 +44,11 @@ flowchart TD
     C -->|User interaction| D[End User]
 
     subgraph Recorder Device
-        A1[Record video locally (optional)]
-        A2[Live streaming (WebRTC / RTSP)]
+        A1[Record video locally]
+        A2[Live streaming WebRTC]
         A3[Video compression H.264/H.265]
         A4[Dual mode: Home Cam / Dash Cam]
-        A5[Receive backend commands (ON/OFF, configs)]
+        A5[Receive backend commands]
         A1 --> A2 --> A3 --> A4 --> A5
     end
 
