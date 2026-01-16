@@ -40,7 +40,7 @@ A cross-platform **Flutter** mobile application (iOS & Android) that can act as 
 ```mermaid
 
 flowchart TB
-    direction TB
+    direction TD
     subgraph Mobile App
         direction LR
         subgraph Recorder Device
