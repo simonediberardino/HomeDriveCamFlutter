@@ -41,16 +41,18 @@ A cross-platform **Flutter** mobile application (iOS & Android) that can act as 
 
 flowchart TD
     subgraph Mobile App
-        subgraph Recorder
+        direction TB
+        subgraph Recorder Device
+            A0[User login]
             A1[Record video locally]
             A2[Live streaming WebRTC]
             A3[Video compression H.264/H.265]
             A4[Dual mode: Home Cam / Dash Cam]
             A5[Receive backend commands]
-            A1 --> A2 --> A3 --> A4 --> A5
+            A0 --> A1 --> A2 --> A3 --> A4 --> A5
         end
 
-        subgraph Viewer
+        subgraph Viewer Device
             C1[User login]
             C2[Select device]
             C3[Receive live streaming]
