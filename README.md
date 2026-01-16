@@ -37,6 +37,8 @@ A cross-platform **Flutter** mobile application (iOS & Android) that can act as 
 
 ## Architecture
 
+```mermaid
+
 flowchart TD
     subgraph Mobile App
         direction TB
@@ -68,7 +70,7 @@ flowchart TD
         B5[Logging / metadata]
         B1 --> B2 --> B3 --> B4 --> B5
     end
-
+```
 
 ---
 
