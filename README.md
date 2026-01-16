@@ -37,16 +37,28 @@ A cross-platform **Flutter** mobile application (iOS & Android) that can act as 
 
 ## Architecture
 
-```mermaid
 flowchart TD
-    subgraph Recorder Device
-        A1[Record video locally]
-        A2[Live streaming WebRTC]
-        A3[Video compression H.264/H.265]
-        A4[Dual mode: Home Cam / Dash Cam]
-        A5[Receive backend commands]
-        A1 --> A2 --> A3 --> A4 --> A5
+    subgraph Mobile App
+        direction TB
+        subgraph Recorder
+            A1[Record video locally]
+            A2[Live streaming WebRTC]
+            A3[Video compression H.264/H.265]
+            A4[Dual mode: Home Cam / Dash Cam]
+            A5[Receive backend commands]
+            A1 --> A2 --> A3 --> A4 --> A5
+        end
+
+        subgraph Viewer
+            C1[User login]
+            C2[Select device]
+            C3[Receive live streaming]
+            C4[Dashboard: ON/OFF, notifications, local clips]
+            C1 --> C2 --> C3 --> C4
+        end
     end
+
+    Mobile App -->|Live stream / commands| Backend
 
     subgraph Backend
         B1[User authentication & management]
@@ -57,14 +69,6 @@ flowchart TD
         B1 --> B2 --> B3 --> B4 --> B5
     end
 
-    subgraph Viewer App
-        C1[User login]
-        C2[Select device]
-        C3[Receive live streaming]
-        C4[Dashboard: ON/OFF, notifications, local clips]
-        C1 --> C2 --> C3 --> C4
-    end
-```
 
 ---
 
