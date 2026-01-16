@@ -39,10 +39,6 @@ A cross-platform **Flutter** mobile application (iOS & Android) that can act as 
 
 ```mermaid
 flowchart TD
-    A[Mobile Device - Flutter] -->|Live stream / commands| B[Backend Server]
-    B -->|Stream initialization & commands| C[Viewer App - Flutter iOS/Android]
-    C -->|User interaction| D[End User]
-
     subgraph Recorder Device
         A1[Record video locally]
         A2[Live streaming WebRTC]
