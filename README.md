@@ -44,6 +44,7 @@ flowchart TB
     subgraph Mobile App
         direction LR
         subgraph Recorder Device
+            direction LR
             A0[User login]
             A1[Record video locally]
             A2[Live streaming WebRTC]
@@ -54,6 +55,7 @@ flowchart TB
         end
 
         subgraph Viewer Device
+            direction LR
             C1[User login]
             C2[Select device]
             C3[Receive live streaming]
