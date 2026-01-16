@@ -47,11 +47,11 @@ flowchart TB
         subgraph Recorder Device
             direction LR
             A0[User login]
-            A1[Record video locally]
-            A2[Live streaming WebRTC]
-            A3[Video compression H.264/H.265]
-            A4[Dual mode: Home Cam / Dash Cam]
-            A5[Receive backend commands]
+            A1[Enroll device Dashcam or Home Cam]
+            A2[Record video locally]
+            A3[Live streaming WebRTC]
+            A4[Video compression H.264/H.265]
+            A5[Receive viewer commands]
             A0 --> A1 --> A2 --> A3 --> A4 --> A5
         end
 
@@ -59,8 +59,8 @@ flowchart TB
             direction LR
             C1[User login]
             C2[Select device]
-            C3[Receive live streaming]
-            C4[Dashboard: ON/OFF, notifications, local clips]
+            C3[Receive live streaming and view saved clips]
+            C4[Send commands to recorder devices]
             C1 --> C2 --> C3 --> C4
         end
     end
